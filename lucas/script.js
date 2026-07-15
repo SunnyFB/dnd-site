@@ -1,5 +1,10 @@
 const ambience = [
 
+{
+name:"Brave Rainbow Rider",
+file:"../sounds/brave_rainbow_rider.mp3"
+}
+
 ];
 
 const effects=[
