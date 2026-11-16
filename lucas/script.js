@@ -46,6 +46,11 @@ file:"../sounds/Snake Eyes.mp3"
 },
 
 {
+name:"Alarm",
+file:"../sounds/alarm.mp3"
+},
+
+{
 name:"Brave Rainbow Rider",
 file:"../sounds/brave_rainbow_rider.mp3"
 },
