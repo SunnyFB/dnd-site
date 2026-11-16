@@ -1,8 +1,63 @@
 const ambience = [
 
 {
+name:"Seatbelts - Rush",
+file:"../sounds/02. Seatbelts - Rush.mp3"
+},
+
+{
+name:"Seatbelts - Too Good Too Bad",
+file:"../sounds/11. Seatbelts - Too Good Too Bad.mp3"
+},
+
+{
+name:"The Day Of",
+file:"../sounds/7-29-04 The Day Of.mp3"
+},
+
+{
+name:"Bad Dog No Biscuits",
+file:"../sounds/Cowboy Bebop OST 1 - Bad Dog No Biscuits.mp3"
+},
+
+{
+name:"Moliendo Cafe",
+file:"../sounds/Moliendo Café 4.mp3"
+},
+
+{
+name:"Swat Team Exit",
+file:"../sounds/Oceans Eleven Soundtrack - Swat Team Exit 4.mp3"
+},
+
+{
+name:"Museum Camera",
+file:"../sounds/Ocean_s Eleven - Museum Camera.mp3"
+},
+
+{
+name:"Piano Bar",
+file:"../sounds/Piano Bar Ⅰ 4.mp3"
+},
+
+{
+name:"Snake Eyes",
+file:"../sounds/Snake Eyes.mp3"
+},
+
+{
 name:"Brave Rainbow Rider",
 file:"../sounds/brave_rainbow_rider.mp3"
+},
+
+{
+name:"Four Heros",
+file:"../sounds/four_heros.mp3"
+},
+
+{
+name:"Our Time is Now",
+file:"../sounds/cena.mp3"
 }
 
 ];
@@ -42,6 +97,11 @@ file:"../sounds/charm.mp3"
 {
 name:"Magic Blast",
 file:"../sounds/magic_blast.mp3"
+},
+
+{
+name:"Burglar Alarm",
+file:"../sounds/Burglar Break-In Bank Alarm Sound Effect 👤🏦🚨 4.mp3"
 }
 
 ];
@@ -108,20 +168,23 @@ function createMusicCard(track){
     stop.textContent="Stop";
     stop.className="stop";
 
-    button.onclick=()=>{
+    button.onclick = () => {
 
-        if(activeTracks[track.name]) return;
+    if(activeTracks[track.name]) return;
 
-        const audio=new Audio(track.file);
+    const audio = new Audio(track.file);
 
-        audio.loop=true;
-        audio.volume=.5;
+    audio.loop = true;
+    audio.volume = .5;
 
-        audio.play();
+    audio.play();
 
-        activeTracks[track.name]=audio;
+    activeTracks[track.name] = audio;
 
-    };
+    // Turn button green while playing
+    button.classList.add("playing");
+
+};
 
     slider.oninput=()=>{
 
@@ -133,18 +196,21 @@ function createMusicCard(track){
 
     };
 
-    stop.onclick=()=>{
+    stop.onclick = () => {
 
-        if(activeTracks[track.name]){
+    if(activeTracks[track.name]){
 
-            activeTracks[track.name].pause();
-            activeTracks[track.name].currentTime=0;
+        activeTracks[track.name].pause();
+        activeTracks[track.name].currentTime = 0;
 
-            delete activeTracks[track.name];
+        delete activeTracks[track.name];
 
-        }
+        // Restore original color
+        button.classList.remove("playing");
 
-    };
+    }
+
+};
 
     card.appendChild(button);
     card.appendChild(slider);

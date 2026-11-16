@@ -51,3 +51,11 @@ input[type=range]{
 .stop:hover{
     background:#d94c4c;
 }
+
+.playing{
+    background:#2ecc71 !important;
+}
+
+.playing:hover{
+    background:#3ee67f !important;
+}
